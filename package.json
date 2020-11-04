@@ -4,7 +4,8 @@
   "description": "Matvii Js practice",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "keywords": [
     "js",
@@ -13,6 +14,8 @@
   "author": "Matvii <matviy.kopchak@gmail.com>",
   "license": "ISC",
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0",
     "webpack": "^5.4.0",
     "webpack-cli": "^4.1.0",
     "webpack-dev-server": "^3.11.0"
