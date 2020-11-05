@@ -1,10 +1,12 @@
-import './style.css';
 import { isValid } from './utils';
+import './style.css';
+import { Note } from './note';
 
 const form = document.getElementById('form');
 const input = form.querySelector('#note-input');
 const submitBtn = form.querySelector('#submit');
 
+window.addEventListener('load', Note.renderList);
 form.addEventListener('submit', submitFormHandler);
 input.addEventListener('input', () => {
   submitBtn.disabled = !isValid(input.value);
@@ -21,11 +23,10 @@ function submitFormHandler(event) {
 
     submitBtn.disabled = true;
 
-    // Async request to server to save notes
-    console.log('Notes', note);
-
-    input.value = '';
-    input.classList = '';
-    submitBtn.disabled = false;
+    Note.create(note).then(() => {
+      input.value = '';
+      input.classList = '';
+      submitBtn.disabled = false;
+    });
   }
 }
