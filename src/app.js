@@ -1,1 +1,3 @@
-console.log('app working');
+import './style.css';
+
+const form = document.getElementById('form');
